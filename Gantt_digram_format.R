@@ -22,6 +22,7 @@ dat$content <- factor(dat$content, levels = as.character(dat$content))
 
 # Separately parse deadlines
 deadlines <- dat[str_detect(dat$content, 'Deadline'), ]
+
 # Visualize
 gantt <- ggplot(data = dat) +
   geom_segment(aes(x = start, xend = end, y = content, yend = content, colour = status), size = 2.5) +
