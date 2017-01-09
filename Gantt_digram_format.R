@@ -1,17 +1,17 @@
-# load neccessary packages
+# Load neccessary packages
 library(data.table)
 library(ggplot2)
 library(stringr)
 
-# read in input data
+# Read in input data
 # format: 
-# content	group	member	start	end	status
-# task1 John NA  30/01/17 30/02/17 finished
-# task2 Team1 NA  30/01/17 30/02/17 not started
-# Deadline: task3 John NA 30/01/17 30/01/17 in progress
+# content,group,member,start,end,status
+# task1,John,NA,30/01/17,30/02/17,finished
+# task2,Team1,NA,30/01/17,30/02/17,not started
+# Deadline: task3,John,NA,30/01/17,30/01/17,in progress
 dat <- fread('example_timeline.txt')
 
-# prepare data
+# Prepare data
 dat$start <- as.Date(dat$start, format = '%d/%m/%y')
 dat$end <- as.Date(dat$end, format = '%d/%m/%y')
 dat <- dat[order(dat$end, decreasing = TRUE), ]
@@ -25,7 +25,6 @@ deadlines <- dat[str_detect(dat$content, 'Deadline'), ]
 deadlines <- dat[str_detect(dat$content, 'Deadline'), ]
 
 # Visualize
-
 gantt <- ggplot(data = dat) +
   geom_segment(aes(x = start, xend = end, y = content, yend = content, colour = status), size = 2.5) +
   theme_bw() + theme_bw() + facet_grid(group ~ ., drop = TRUE, scales = "free_y", space = "free") + 
@@ -40,5 +39,5 @@ gantt <- ggplot(data = dat) +
 
 gantt
 
-# adjust size and save as .png  
+# Adjust size and save as .png  
 ggsave('gantt_test.png', dpi = 600, width = 8 * 1.3, height = 4 * 1.3, units = 'in')
