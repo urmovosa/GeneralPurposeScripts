@@ -9,7 +9,7 @@ library(stringr)
 # task1 John NA  30/01/17 30/02/17 finished
 # task2 Team1 NA  30/01/17 30/02/17 not started
 # Deadline: task3 John NA 30/01/17 30/01/17 in progress
-dat <- fread('timeline.txt')
+dat <- fread('example_timeline.txt')
 
 # prepare data
 dat$start <- as.Date(dat$start, format = '%d/%m/%y')

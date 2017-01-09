@@ -1,0 +1,10 @@
+content,group,member,start,end,status
+task1,John,NA,01/01/17,15/01/17,finished
+task2,John,NA,16/01/17,25/01/17,in progress
+task3,John,NA,26/01/17,30/01/17,not started
+task4,Team1,NA,30/01/17,23/02/17,not started
+Deadline:task3,John,NA,30/01/17,30/01/17,in progress
+task5,Mary,NA,15/12/16,23/12/16,finished
+task6,Team1,Carl,01/12/16,23/12/16,in progress
+task7,Team1,NA,15/12/16,03/01/17,not started
+Deadline:task7,Team1,NA,03/01/17,03/01/17,not started
