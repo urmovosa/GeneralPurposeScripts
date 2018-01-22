@@ -18,7 +18,7 @@ dat <- dat[order(dat$end, decreasing = TRUE), ]
 
 # Here order the individuals/teams
 dat$group <- factor(dat$group, levels = c('John', 'Jack', 'Mary', 'Team1'))
-dat$content <- factor(dat$content, levels = as.character(dat$content))
+dat$content <- factor(dat$content, levels = as.character(unique(dat$content)))
 
 # Separately parse deadlines
 deadlines <- dat[str_detect(dat$content, 'Deadline'), ]
